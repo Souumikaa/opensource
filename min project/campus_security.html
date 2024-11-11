@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Security</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+        }
+        h1 {
+            color: #020c02;
+        }
+        p {
+            font-size: 16px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Campus Security</h1>
+    </header>
+
+    <section>
+        <h2>Important Information</h2>
+        <p>Campus security is available 24/7 to ensure your safety. You can contact them at:</p>
+        <ul>
+            <li>Emergency Contact: <strong>(123) 456-7890</strong></li>
+            <li>Non-Emergency Contact: <strong>(123) 555-1234</strong></li>
+        </ul>
+        <p> dear students ,If you ever feel unsafe on campus, please do not hesitate to reach out to campus security. They can assist with any immediate concerns or emergencies.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 VNRVJIET Campus Security. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Security-details(to be added if any security is on leave)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 10px;
+        }
+        header {
+            background-color: #4caf75;
+            color: white;
+            padding: 10px;
+        }
+        h1 {
+            color: #020d03;
+        }
+        p {
+            font-size: 16px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .security-contact-form input,
+        .security-contact-form button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        .security-contact-form {
+            margin-bottom: 20px;
+        }
+        .security-contact-list {
+            margin-top: 20px;
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .security-contact-list li {
+            background-color: #e7f4e7;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .security-contact-list li strong {
+            color: #333;
+        }
+        .delete-button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .delete-button:hover {
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Campus Security-details(to be added if any security is on leave)</h1>
+    </header>
+
+    <section>
+        <h2>Important Security Contacts</h2>
+        <ul class="security-contact-list" id="existingContacts">
+            <li>
+                <strong>John Doe</strong><br>
+                Phone: <strong>(123) 456-7890</strong>
+                <button class="delete-button" onclick="deleteContact(this)">Delete</button>
+            </li>
+            <li>
+                <strong>Jane Smith</strong><br>
+                Phone: <strong>(234) 567-8901</strong>
+                <button class="delete-button" onclick="deleteContact(this)">Delete</button>
+            </li>
+        </ul>
+
+        <h3>Add New Security Contact</h3>
+        <div class="security-contact-form">
+            <label for="contactName">Name:</label>
+            <input type="text" id="contactName" placeholder="Contact Name" required>
+            
+            <label for="contactPhone">Phone:</label>
+            <input type="text" id="contactPhone" placeholder="Phone Number" required>
+            
+            <button id="addContactButton">Add Contact</button>
+        </div>
+
+        <h3>Added Security Contacts</h3>
+        <ul id="newContactsList" class="security-contact-list">
+            <!-- Dynamically added contacts will appear here -->
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 VNRVJIET Campus Security. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript to handle dynamic contact addition
+        document.getElementById('addContactButton').addEventListener('click', function() {
+            // Get input values
+            const name = document.getElementById('contactName').value;
+            const phone = document.getElementById('contactPhone').value;
+
+            // Validate inputs
+            if (name && phone) {
+                // Create new list item for the added contact
+                const newContact = document.createElement('li');
+                newContact.innerHTML = `
+                    <strong>${name}</strong><br>
+                    Phone: <strong>${phone}</strong>
+                    <button class="delete-button" onclick="deleteContact(this)">Delete</button>
+                `;
+
+                // Append the new contact to the list
+                document.getElementById('newContactsList').appendChild(newContact);
+
+                // Clear the input fields after adding the contact
+                document.getElementById('contactName').value = '';
+                document.getElementById('contactPhone').value = '';
+            } else {
+                alert("Please fill in both name and phone number.");
+            }
+        });
+
+        // Function to delete a contact
+        function deleteContact(button) {
+            // Remove the parent list item of the clicked delete button
+            button.parentElement.remove();
+        }
+    </script>
+
+</body>
+</html>

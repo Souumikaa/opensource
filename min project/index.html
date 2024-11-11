@@ -8,7 +8,7 @@
     /* Basic CSS for styling */
     body {
       font-family: Arial, sans-serif;
-      background-color: #eaeaf4;
+      background-color: #f4f4f9;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -18,24 +18,30 @@
     .login-container {
       max-width: 400px;
       width: 100%;
-      padding: 50Px;
+      padding: 80px;
       background-color: #ffffff;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      text-align: center;
+      text-align: left; /* Align text to the left */
       border-radius: 8px;
     }
     .login-container h1 {
       font-size: 24px;
       color: #333333;
+      text-align: center; /* Center the heading only */
     }
     .login-container p {
       font-size: 14px;
       color: #666666;
+      text-align: center; /* Center the subheading only */
     }
     .login-form {
       display: flex;
       flex-direction: column;
       margin-top: 20px;
+      align-items: flex-start; /* Align form elements to the left */
+    }
+    .login-form label, .login-form select, .login-form input, .login-form button {
+      width: 100%; /* Full width of container */
     }
     .login-form select, .login-form input {
       padding: 12px;
@@ -59,6 +65,7 @@
     .error-message {
       color: red;
       font-size: 14px;
+      text-align: left;
     }
   </style>
 </head>
@@ -83,7 +90,8 @@
       </div>
 
       <!-- Password input remains the same for both roles -->
-      <input type="password" name="password" placeholder="Enter your password" required>
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password" placeholder="Enter your password" required>
       <button type="submit">Login</button>
     </form>
 

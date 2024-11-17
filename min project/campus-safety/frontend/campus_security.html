@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Security</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places"></script>
+</head>
+<body>
+
+    <header>
+        <h1>VNRVJIET Campus Security</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="emergency_plan.html">Emergency Evacuation Plan</a>
+            <a href="mental_health_resources.html">Mental Health Resources</a>
+            <a href="first_aid_tips.html">First Aid Tips</a>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Campus Security Overview</h2>
+        <p>Our campus security team is committed to ensuring a safe environment for all students, faculty, and staff. The security office is open 24/7 and provides various services to keep the campus secure.</p>
+
+        <h3>Security Services Offered</h3>
+        <ul>
+            <li>24/7 Surveillance and Monitoring</li>
+            <li>Incident Response and Investigation</li>
+            <li>Emergency Alert System</li>
+            <li>Escort Services for Students</li>
+            <li>Lost and Found</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Security Office Location</h2>
+        <p>Our campus security office is located in the main building, near the administration block. Use the map below to find the exact location and get directions to the security office.</p>
+
+        <div id="map" style="height: 400px; width: 100%;"></div>
+        
+        <script>
+            function initMap() {
+                const securityOffice = { lat: 12.9716, lng: 77.5946 }; // Replace with your security office coordinates
+
+                const map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 16,
+                    center: securityOffice
+                });
+
+                const marker = new google.maps.Marker({
+                    position: securityOffice,
+                    map: map,
+                    title: 'Campus Security Office'
+                });
+            }
+
+            // Initialize the map once the page is loaded
+            window.onload = initMap;
+        </script>
+    </section>
+
+    <section>
+        <h2>Emergency Contacts</h2>
+        <p>If you need immediate assistance, here are some important emergency contacts:</p>
+        <ul>
+            <li>Campus Security: <strong>(123) 456-7890</strong></li>
+            <li>Local Police: <strong>(987) 654-3210</strong></li>
+            <li>Fire Department: <strong>(555) 123-4567</strong></li>
+            <li>Medical Assistance: <strong>(555) 987-6543</strong></li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 VNRVJIET Campus Safety. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

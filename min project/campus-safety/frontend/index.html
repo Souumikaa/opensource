@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VNRVJIET Campus Safety</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>VNRVJIET - Campus Safety</h1>
+        <nav>
+            <a href="#resources">Safety Resources</a>
+            <a href="#report">Report an Incident</a>
+            <a href="#contacts">Emergency Contacts</a>
+        </nav>
+    </header>
+
+    <section id="resources">
+        <h2>Safety Resources</h2>
+        <ul>
+            <li><a href="campus_security.html">Campus Security</a></li>
+            <li><a href="emergency_plan.html">Emergency Evacuation Plan</a></li>
+            <li><a href="mental_health_resources.html">Mental Health Resources</a></li>
+            <li><a href="first_aid_tips.html">First Aid Tips</a></li>
+        </ul>
+    </section>
+
+    <section id="report">
+        <h2>Report an Incident</h2>
+        <form id="incidentForm" enctype="multipart/form-data">
+            <label for="incidentType">Incident Type:</label>
+            <select id="incidentType" name="incidentType" required>
+                <option value="accident">Accident</option>
+                <option value="theft">Theft</option>
+                <option value="emergency">Emergency</option>
+            </select>
+
+            <label for="description">Incident Description:</label>
+            <textarea id="description" name="description" rows="4" required></textarea>
+
+            <label for="attachment">Upload Attachment (optional):</label>
+            <input type="file" id="attachment" name="attachment" />
+
+            <button type="submit">Submit Report</button>
+        </form>
+    </section>
+
+    <section id="contacts">
+        <h2>Emergency Contacts</h2>
+        <ul>
+            <li>Campus Security: <strong>(123) 456-7890</strong></li>
+            <li>Local Police: <strong>(987) 654-3210</strong></li>
+            <li>Fire Department: <strong>(555) 123-4567</strong></li>
+            <li>Medical Assistance: <strong>(555) 987-6543</strong></li>
+        </ul>
+    </section>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

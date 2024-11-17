@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Evacuation Plan</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places"></script>
+</head>
+<body>
+
+    <header>
+        <h1>VNRVJIET Emergency Evacuation Plan</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="campus_security.html">Campus Security</a>
+            <a href="mental_health_resources.html">Mental Health Resources</a>
+            <a href="first_aid_tips.html">First Aid Tips</a>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Emergency Evacuation Plan</h2>
+        <p>In case of an emergency, it is important to follow the designated evacuation routes to the nearest safe location. Below are the steps to follow during an evacuation:</p>
+
+        <h3>Evacuation Procedure:</h3>
+        <ol>
+            <li>Stay calm and alert. Listen to the emergency announcements for instructions.</li>
+            <li>Evacuate immediately if you hear the emergency alarm or receive evacuation orders.</li>
+            <li>Proceed to the nearest exit in an orderly manner. Do not use elevators.</li>
+            <li>Follow the marked evacuation routes to the assembly point.</li>
+            <li>Do not return to the building until it is declared safe by the authorities.</li>
+        </ol>
+
+        <h3>Evacuation Routes</h3>
+        <p>The shortest route to the nearest emergency exit is displayed on the map below. Please familiarize yourself with the route beforehand.</p>
+
+        <button id="showRouteButton">Show Shortest Evacuation Route</button>
+
+        <div id="mapContainer" style="display:none;">
+            <div id="map" style="height: 400px; width: 100%;"></div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 VNRVJIET Emergency Evacuation. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Initialize the map and evacuation route
+        function initMap() {
+            const start = { lat: 12.9716, lng: 77.5946 }; // Example: Current location of user (Replace with actual starting point)
+            const end = { lat: 12.9750, lng: 77.6100 }; // Example: Emergency exit location (Replace with actual emergency exit coordinates)
+
+            const map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 16,
+                center: start
+            });
+
+            const directionsService = new google.maps.DirectionsService();
+            const directionsRenderer = new google.maps.DirectionsRenderer({
+                map: map
+            });
+
+            const request = {
+                origin: start,
+                destination: end,
+                travelMode: google.maps.TravelMode.WALKING // Use WALKING mode for pedestrians
+            };
+
+            directionsService.route(request, function(result, status) {
+                if (status === google.maps.DirectionsStatus.OK) {
+                    directionsRenderer.setDirections(result);
+                } else {
+                    alert('Directions request failed due to ' + status);
+                }
+            });
+        }
+
+        // Load the map when the button is clicked
+        document.getElementById('showRouteButton').addEventListener('click', function() {
+            document.getElementById('mapContainer').style.display = 'block';
+            initMap();
+        });
+
+        // Load the Google Maps API script dynamically
+        function loadGoogleMapsScript() {
+            const script = document.createElement('script');
+            script.src = `https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap&libraries=places`;
+            script.async = true;
+            document.head.appendChild(script);
+        }
+
+        // Load the Google Maps API when the page is ready
+        window.onload = function() {
+            loadGoogleMapsScript();
+        };
+    </script>
+
+</body>
+</html>
